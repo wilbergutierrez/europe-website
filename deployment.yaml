@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: europe-website
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: europe-website
+  template:
+    metadata:
+      labels:
+        app: europe-website
+    spec:
+      containers:
+      - name: europe-website
+        image: gcr.io/group4-472320/europe-website:v1.2
+        ports:
+        - containerPort: 80
